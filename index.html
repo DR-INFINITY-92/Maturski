@@ -1,67 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stranica sa Ranglistom</title>
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Moja Ranglista</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Početna <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">O nama</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="ranglista-link"
-              >Ranglista igrača</a
-            >
-          </li>
-          <li class="nav-item">
-            <button class="nav-link btn btn-link" id="toggle-sound">
-              Isključi zvuk
-            </button>
-          </li>
-        </ul>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="connect4.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <button id="colorButton">Promeni Boju</button>
+        <button id="musicButton">Isključi Muziku</button>
+        <button id="resetButton">Resetuj Tablu</button>
     </nav>
+    <div class="input-container">
+        <input type="text" id="player1name" placeholder="Prvi Igrac">
+        <input type="text" id="player2name" placeholder="Drugi Igrac">
+    </div>
+    
+    
+    
+    <div id="colorModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Izaberi boju</h2>
+            <div class="colors">
+                <div class="color" data-color="#FF5733" style="background-color: #FF5733;"></div>
+                <div class="color" data-color="#33FF57" style="background-color: #33FF57;"></div>
+                <div class="color" data-color="#3357FF" style="background-color: #3357FF;"></div>
+                <div class="color" data-color="#F3FF33" style="background-color: #F3FF33;"></div>
+                <div class="color" data-color="#FFFFFF" style="background-color: #ffffff;"></div>
+                <div class="color" data-color="#ffc0cb" style="background-color: #ffc0cb;"></div>
+            </div>
+        </div>
+    </div>
+    <h3 id="scoreboard" class="scoreboard">
+        <span id="player1name">Prvi</span>: <span id="redScore">0</span> - <span id="player2name">Drugi</span>: <span id="yellowScore">0</span>
+    </h3>
+    
 
-    <div class="container mt-5">
-      <h1>Dobrodošli!</h1>
-      <p>Ova stranica sadrži ranglistu igrača.</p>
+    <audio id="backgroundMusic" src="audio/pozadinska.mp3" loop></audio>
+    <audio id="winSound" src="audio/pobeda.mp3"></audio>
+    <audio id="resetSound" src="audio/draw.mp3"></audio>
+
+
+    <h1>CONNECT-4</h1>
+    <h2 id="whosturn"></h2>
+
+    <div class="board">
+
+        <ul class="column" id="c1">
+            <p id="c1r6"></p>
+            <p id="c1r5"></p>
+            <p id="c1r4"></p>
+            <p id="c1r3"></p>
+            <p id="c1r2"></p>
+            <p id="c1r1"></p>
+        </ul>
+        <ul class="column" id="c2">
+            <p id="c2r6"></p>
+            <p id="c2r5"></p>
+            <p id="c2r4"></p>
+            <p id="c2r3"></p>
+            <p id="c2r2"></p>
+            <p id="c2r1"></p>
+        </ul>
+        <ul class="column" id="c3">
+            <p id="c3r6"></p>
+            <p id="c3r5"></p>
+            <p id="c3r4"></p>
+            <p id="c3r3"></p>
+            <p id="c3r2"></p>
+            <p id="c3r1"></p>
+        </ul>
+        <ul class="column" id="c4">
+            <p id="c4r6"></p>
+            <p id="c4r5"></p>
+            <p id="c4r4"></p>
+            <p id="c4r3"></p>
+            <p id="c4r2"></p>
+            <p id="c4r1"></p>
+        </ul>
+        <ul class="column" id="c5">
+            <p id="c5r6"></p>
+            <p id="c5r5"></p>
+            <p id="c5r4"></p>
+            <p id="c5r3"></p>
+            <p id="c5r2"></p>
+            <p id="c5r1"></p>
+        </ul>
+        <ul class="column" id="c6">
+            <p id="c6r6"></p>
+            <p id="c6r5"></p>
+            <p id="c6r4"></p>
+            <p id="c6r3"></p>
+            <p id="c6r2"></p>
+            <p id="c6r1"></p>
+        </ul>
+        <ul class="column" id="c7">
+            <p id="c7r6"></p>
+            <p id="c7r5"></p>
+            <p id="c7r4"></p>
+            <p id="c7r3"></p>
+            <p id="c7r2"></p>
+            <p id="c7r1"></p>
+        </ul>
+
+
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
 
-    <!-- Dodavanje audio elementa -->
-    <audio src="pesma1.mp3" loop></audio>
-  </body>
+    <script src="./connect4.js"></script>
+
+</body>
+
 </html>

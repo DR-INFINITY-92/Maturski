@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0; /* Uklanja podrazumevani margin */
+    padding: 0; /* Uklanja podrazumevani padding */
+    display: grid;
+    place-items: center;
+    border: 50px solid rgb(74, 74, 198); /* Dodaje border oko cele stranice iste boje kao i navbar */
+}
+
+h1{
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    border: 2px solid black;
+   width: 630px;
+   background-color: rgb(74, 74, 198);
+   margin-bottom: 220px;
+    
+  
+}
+
+ul{
+    display: grid;
+    place-items: center;
+    
+}
+
+ul p{
+    margin: 5px;
+    width: 75px;
+    height: 75px;
+    border: 2px solid black;
+    border-radius: 100px;
+    background-color: white;
+}
+
+ul:hover{
+    cursor: pointer;
+    background-color: rgb(98, 136, 238);
+}
+
+
+@media(max-width:700px){
+    .board{
+        width: 500px;
+    }
+    ul p{
+        width: 55px;
+        height: 55px;
+        
+    }
+    
+}
+@media(max-width:520px){
+    .board{
+        width: 400px;
+    }
+    ul p{
+        width: 40px;
+        height: 40px;
+        
+    }
+    
+}
+@media(max-width:420px){
+    .board{
+        width: 320px;
+    }
+    ul p{
+        width: 30px;
+        height: 30px;
+        
+    }
+    
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* Modal stilizacija */
+.modal {
+    display: none; /* Sakriveno po defaultu */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.colors {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.color {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+#scoreboard {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+}
+#playerNames {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#playerNames input {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(74, 74, 198); /* Postavljanje boje pozadine */
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.navbar button {
+    padding: 15px 30px; /* Povećavanje veličine dugmadi */
+    font-size: 18px; /* Povećavanje veličine fonta */
+    color: black; /* Postavljanje boje teksta na crnu */
+    background-color: #ffc0cb; /* Postavljanje boje pozadine na roze */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color: lightpink; /* Promena boje pozadine na hover */
+}
+.input-container {
+    background-color: rgb(74, 74, 198); /* Boja input kontejnera */
+    padding: 10px; /* Dodajemo malo prostora unutar kontejnera */
+    margin-bottom: 20px; /* Dodajemo razmak ispod kontejnera */
+    margin-top: 120px;
+}
+
+.scoreboard {
+    background-color: rgb(74, 74, 198); /* Boja scoreboarda */
+    color: white; /* Boja teksta u scoreboardu */
+    padding: 10px; /* Dodajemo malo prostora unutar scoreboarda */
+    text-align: center; /* Centriramo tekst */
+    margin-top: 20px; /* Dodajemo razmak iznad scoreboarda */
+}
